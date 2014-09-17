@@ -4,7 +4,7 @@ angular.module('MyApp.controllers')
   .controller('navCtrl', ['$scope', '$location', function ($scope, $location) {
     $scope.navClass = function (page) {
       var currentRoute = $location.path().substring(1) || 'home';
-      return page === currentRoute ? 'active' : '';
+      return page === currentRoute ? 'activeOwn' : 'differentH';
     }; 
     $scope.loadHome = function () {$location.url('/home');}; 
     $scope.loadOne = function () {$location.url('/one');};
