@@ -13,7 +13,7 @@ function httpCtrl($scope, $http, $window) {
     $scope.requestItemMeta = function($url) {
         $scope.url = 'backend/item.php';
         $scope.agent = 'item-meta';
-        $scope.reqtype = 'get'
+        $scope.reqtype = 'get';
         
         $http.post($scope.url, {"agent" : $scope.agent, "reqtype" : $scope.reqtype, "item_id" : $scope.item_id}).
         success(function(data, status) {
