@@ -19,7 +19,23 @@ function httpCtrl($scope, $http, $window) {
         success(function(data, status) {
             $scope.status = status;
             $scope.data = data;
-            $scope.item = data.itm.ItemID;     // - will remove after testing
+        }).
+        error(function(data, status) {
+            $scope.data = data || "Request failed";
+            $scope.status = status;         
+        });
+    };
+
+    // ITEM-VAL - use this for grabbing item values
+    $scope.requestItemVal = function($url) {
+        $scope.url = 'backend/values.php';
+        $scope.agent = 'item-val';
+        $scope.reqtype = 'get'
+        
+        $http.post($scope.url, {"agent" : $scope.agent, "reqtype" : $scope.reqtype, "item_id" : $scope.item_id}).
+        success(function(data, status) {
+            $scope.status = status;
+            $scope.data = data;
         }).
         error(function(data, status) {
             $scope.data = data || "Request failed";
