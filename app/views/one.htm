@@ -20,19 +20,22 @@
                     <div ng-controller="httpCtrl">
 
                         <form class="form-horizontal" role="form">
-                            <div class="well">
-                                <div class="form-group">
-                                    <div class="col-sm-2">
-                                        <label>Select an item id</label>
-                                        <select class="form-control" ng-model="item_id">
-                                            <option>12345</option>
-                                            <option>12346</option>
-                                            <option>12347</option>
-                                        </select>
+                            <div style="width : 20%">
+                                <div class="well">
+                                    <div class="form-group">
+                                        <div class = "col-sm-5">  <!-- ???? What is the grid system of Bootstrap? -->
+                                            <label>Select an item id</label>
+                                            <select class="form-control" ng-model="item_id">
+                                                <option>12345</option>
+                                                <option>12346</option>
+                                                <option>12347</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
-                                <button type="submit" class="btn btn-primary" ng-click="requestItemMeta()">Submit</button> 
-                            </div>      
+                                    <button type="submit" class="btn btn-primary" ng-click="requestItemMeta()">Submit</button> 
+                                </div>     
+                            </div>
+
                         </form>
 
                         <div data-ng-repeat="item in data.itm" ng-if="item.DB > 0">
@@ -101,31 +104,31 @@
 
                                     <div data-ng-repeat="seq in data.seq" ng-if="seq.seq_id > 0">
                                         <table class="table table-striped table-bordered">
-                                         <thead> 
-                                             <tr>
-                                                 <th>Sequence Id</th>
-                                                 <th>Start</th>
-                                                 <th>End</th>
-                                             </tr>
-                                         </thead>
-                                         <tbody>
-                                             <tr data-ng-repeat="seq in data.seq | filter:searchText">
-                                                 <td>{{ seq.seq_id }}</td>
-                                                 <td>{{ seq.start_se }}</td>
-                                                 <td>{{ seq.end_se }}</td>   
-                                             </tr>
-                                         </tbody>
-                                     </table> 
-                                 </div>   
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-         </div>
-     </div>
- </body>
- </html>
+                                           <thead> 
+                                               <tr>
+                                                   <th>Sequence Id</th>
+                                                   <th>Start</th>
+                                                   <th>End</th>
+                                               </tr>
+                                           </thead>
+                                           <tbody>
+                                               <tr data-ng-repeat="seq in data.seq | filter:searchText">
+                                                   <td>{{ seq.seq_id }}</td>
+                                                   <td>{{ seq.start_se }}</td>
+                                                   <td>{{ seq.end_se }}</td>   
+                                               </tr>
+                                           </tbody>
+                                       </table> 
+                                   </div>   
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </body>
+   </html>
 
 
 
