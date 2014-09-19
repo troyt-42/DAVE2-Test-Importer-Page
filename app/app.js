@@ -1,13 +1,12 @@
 'use strict';
 
-angular.module('MyApp', [
+var MyApp = angular.module('MyApp', [
   'ngRoute',
   'MyApp.services',
   'MyApp.directives',
   'MyApp.controllers'
-]).
-
-config(function ($routeProvider, $locationProvider, $httpProvider) {
+])
+  .config(function ($routeProvider, $locationProvider, $httpProvider) {
   $routeProvider.when('/home', {templateUrl: 'app/views/home.htm', controller: 'home'});
   $routeProvider.when('/one', {templateUrl: 'app/views/one.htm', controller: 'one'});
   $routeProvider.when('/two', {templateUrl: 'app/views/two.htm', controller: 'two'});
@@ -22,3 +21,7 @@ config(function ($routeProvider, $locationProvider, $httpProvider) {
   $routeProvider.otherwise({redirectTo: '/home'});
 
 });
+
+MyApp.Controller('dataItemDisplayController', ['dataItem', '$scope', function(dataItem, $scope){
+  $scope.
+}])
