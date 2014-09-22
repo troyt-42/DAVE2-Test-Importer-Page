@@ -1,0 +1,140 @@
+<!doctype html>
+<html ng-app = "MyApp">
+<body>
+	<br><br><br><br>
+
+	<div class="panel">
+
+		<div class="panel-heading tt-panel"><b style="font-size : 2em;color : white">Data Item Display</b>
+		</div>
+
+		<div class="panel-body">
+			<hr>
+
+
+			<div ng-controller="dataItemDetailController as detailCtrl">
+				<div class = "row">
+					<div class = "col-sm-12 col-md-3">
+
+						<div class = "tt-header well"> 
+							<div class = "tt-header-text"><b>Input Your Filter</b></div>
+						</div>
+
+						<div class = "bs-callout">
+							<form class="form-horizontal" role="form">
+
+								<div class="form-group">
+
+									<div class="col-sm-12">    
+										<label for="timestamp" class="control-label">Timestamp</label>
+									</div>
+
+									<div class="col-sm-12">
+										<input type="date" class="form-control" id="timestamp" placeholder="Timestamp" ng-model = "timestamp">
+
+									</div>
+								</div>
+
+								<div class="form-group">
+
+									<div class="col-sm-12">
+										<label for="lotnumber" class="control-label">Lotnumber</label>
+									</div>
+
+									<div class="col-sm-12">
+										<input type="text" class="form-control" id="lotnumber" placeholder="Lotnumber" ng-model = 'lotnumber'>
+									</div>
+								</div>
+
+								<div class="form-group">
+
+									<div class="col-sm-12">
+										<label for="label" class="control-label">Label</label>
+									</div>
+
+									<div class="col-sm-12">
+										<input type="text" class="form-control" id="label" placeholder="Label" ng-model = 'label'>
+									</div>
+								</div>
+
+								<div class="form-group">
+
+									<div class="col-sm-12">
+										<label for="weight" class="control-label">Weight</label>
+									</div>
+
+									<div class="col-sm-12">
+										<input type="text" class="form-control" id="weight" placeholder="Weight" ng-model = 'weight'>
+									</div>
+								</div>
+
+								<div class="form-group">
+
+									<div class="col-sm-12">
+										<label for="count" class="control-label">Count</label>
+									</div>
+
+									<div class="col-sm-12">
+										<input type="text" class="form-control" id="count" placeholder="Count" ng-model = 'count'>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-6">
+										<button type="submit" class="btn btn-success btn-block" ng-click="display(itemNumber, itemName, itemArea, itemOwner)">Submit</button>
+									</div>
+									<div class="col-sm-6">
+										<button type="button" class ="btn btn-inverse btn-block" >Reset</button>
+									</div>
+								</div>
+							</form>
+						</div>  
+					</div>
+					<div class = "col-sm-12 col-md-9">
+						<div class = "well" style = "background-color:white">
+							<h1>Details</h1>
+							<table class = "table table-striped table-bordered">
+								<thead>
+									<tr>
+										<td>Timestamp</td>
+										<td>Lotnumber</td>
+										<td>Label</td>
+										<td>Weight</td>
+										<td>Count</td>
+										<td>Intval1</td>
+										<td>Floatval1</td>
+										<td>Floatval2</td>
+										<td>Comment</td>
+									</tr>
+								</thead>
+
+								<tbody>
+
+									<tr class = "info" ng-repeat = "item in data.values | filter: [timestamp, lotnumber, label, weight, count]">
+										<td>{{ date(item[0]) | date : "yyyy-MM-dd"}}</td>
+										<td>{{ item[1]}}</td>
+										<td>{{ item[2]}}</td>
+										<td>{{ item[3]}}</td>
+										<td>{{ item[4]}}</td>
+										<td>{{ item[5]}}</td>
+										<td>{{ item[6]}}</td>
+										<td>{{ item[7]}}</td>
+										<td>{{ item[8]}}</td>
+									</tr>
+
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+
+
+
+
+
