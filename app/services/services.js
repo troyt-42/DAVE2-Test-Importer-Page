@@ -11,12 +11,14 @@ app.value('version', '2.0');
 
 app.factory('dataItem', ['$resource',
 	function($resource){
-		return $resource('backend/dataItems.json', {}, {});
-	}
-	]);
+		return $resource('dataItems.json', {}, {});
+	}]);
 
 app.factory('dataItemDetail',['$resource',
 	function($resource){
-		return $resource('backend/dataItemDetails.json', {}, {});
-	}
-	]);
+		return $resource('dataItemDetails.json', {}, {});
+	}]);
+app.factory('callData',['$resource',
+	function($resource){
+		return $resource('http://localhost:8080/',{} ,{});
+	}]);

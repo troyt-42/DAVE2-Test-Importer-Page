@@ -24,7 +24,8 @@ MyApp.config(function ($routeProvider, $locationProvider, $httpProvider) {
 
 });
 
-MyApp.controller('dataItemDisplayController', ['dataItem', '$scope', function(dataItem, $scope){
+MyApp.controller('dataItemDisplayController', ['callData','dataItem', '$scope', function(callData, dataItem, $scope){
+  callData.get();
   $scope.data = dataItem.get();
   $scope.createFilter = function(field){
     if (field) { $scope.filter[$scope.length] = field;
@@ -35,7 +36,8 @@ MyApp.controller('dataItemDisplayController', ['dataItem', '$scope', function(da
     }
   }]);
 
-MyApp.controller('dataItemDetailController', ['dataItemDetail', '$scope',function (dataItemDetail, $scope) {
+MyApp.controller('dataItemDetailController', ['callData','dataItemDetail', '$scope',function (callData,dataItemDetail, $scope) {
+  callData.get();
   $scope.data = dataItemDetail.get();
   console.log($scope.data);
   $scope.date = function(timestamp){
